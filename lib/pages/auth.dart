@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import './products.dart';
 
 class AuthPage extends StatelessWidget {
@@ -9,12 +10,13 @@ class AuthPage extends StatelessWidget {
         title: Text('Login'),
       ),
       body: Center(
-          child: RaisedButton(
-        child: Text('Login'),
-        onPressed: () {
-          Navigator.pushReplacementNamed(context, "/");
-        },
-      )),
+        child: RaisedButton(
+          child: Text('LOGIN'),
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, '/');
+          },
+        ),
+      ),
     );
   }
 }
