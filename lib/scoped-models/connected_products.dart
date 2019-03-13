@@ -172,13 +172,13 @@ mixin ProductsModel on ConnectedProductsModel {
       }
       productListData.forEach((String productId, dynamic productData) {
         final Product product = Product(
-            id: productId,
-            title: productData['title'],
-            description: productData['description'],
-            image: productData['image'],
+            id: productId.toString(),
+            title: productData['title'].toString(),
+            description: productData['description'].toString(),
+            image: productData['image'].toString(),
             price: productData['price'],
-            userEmail: productData['userEmail'],
-            userId: productData['userId']);
+            userEmail: productData['userEmail'].toString(),
+            userId: productData['userId'].toString());
         fetchedProductList.add(product);
       });
       _products = fetchedProductList;
