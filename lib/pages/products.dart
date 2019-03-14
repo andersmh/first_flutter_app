@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import '../widgets/products/products.dart';
-import '../scoped-models/main.dart';
 import '../widgets/ui_elements/logout_list_tile.dart';
+import '../scoped-models/main.dart';
 
 class ProductsPage extends StatefulWidget {
   final MainModel model;
@@ -31,6 +31,8 @@ class _ProductsPageState extends State<ProductsPage> {
           AppBar(
             automaticallyImplyLeading: false,
             title: Text('Choose'),
+            elevation:
+                Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
           ),
           ListTile(
             leading: Icon(Icons.edit),
@@ -69,6 +71,7 @@ class _ProductsPageState extends State<ProductsPage> {
       drawer: _buildSideDrawer(context),
       appBar: AppBar(
         title: Text('EasyList'),
+        elevation: Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
         actions: <Widget>[
           ScopedModelDescendant<MainModel>(
             builder: (BuildContext context, Widget child, MainModel model) {

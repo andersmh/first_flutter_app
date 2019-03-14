@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import './product_edit.dart';
 import './product_list.dart';
-import '../scoped-models/main.dart';
 import '../widgets/ui_elements/logout_list_tile.dart';
+import '../scoped-models/main.dart';
 
 class ProductsAdminPage extends StatelessWidget {
   final MainModel model;
@@ -17,6 +17,8 @@ class ProductsAdminPage extends StatelessWidget {
           AppBar(
             automaticallyImplyLeading: false,
             title: Text('Choose'),
+            elevation:
+              Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
           ),
           ListTile(
             leading: Icon(Icons.shop),
@@ -40,6 +42,8 @@ class ProductsAdminPage extends StatelessWidget {
         drawer: _buildSideDrawer(context),
         appBar: AppBar(
           title: Text('Manage Products'),
+          elevation:
+              Theme.of(context).platform == TargetPlatform.iOS ? 0.0 : 4.0,
           bottom: TabBar(
             tabs: <Widget>[
               Tab(
