@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:scoped_model/scoped_model.dart';
-import 'package:map_view/map_view.dart';
 // import 'package:flutter/rendering.dart';
 
 import './pages/auth.dart';
@@ -14,14 +13,9 @@ import './pages/product.dart';
 import './scoped-models/main.dart';
 import './models/product.dart';
 import './widgets/helpers/custom_route.dart';
-import './shared/global_config.dart';
 import './shared/adaptive_theme.dart';
 
 void main() {
-  // debugPaintSizeEnabled = true;
-  // debugPaintBaselinesEnabled = true;
-  // debugPaintPointersEnabled = true;
-  MapView.setApiKey(apiKey);
   runApp(MyApp());
 }
 

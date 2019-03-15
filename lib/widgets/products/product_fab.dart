@@ -3,7 +3,6 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import 'package:scoped_model/scoped_model.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../models/product.dart';
 import '../../scoped-models/main.dart';
@@ -50,14 +49,7 @@ class _ProductFABState extends State<ProductFAB> with TickerProviderStateMixin {
                   backgroundColor: Theme.of(context).cardColor,
                   heroTag: 'contact',
                   mini: true,
-                  onPressed: () async {
-                    final url = 'mailto:${widget.product.userEmail}';
-                    if (await canLaunch(url)) {
-                      await launch(url);
-                    } else {
-                      throw 'Could not launch!';
-                    }
-                  },
+                  onPressed: () async {},
                   child: Icon(
                     Icons.mail,
                     color: Theme.of(context).primaryColor,
@@ -104,8 +96,11 @@ class _ProductFABState extends State<ProductFAB> with TickerProviderStateMixin {
                 builder: (BuildContext context, Widget child) {
                   return Transform(
                     alignment: FractionalOffset.center,
-                    transform: Matrix4.rotationZ(_controller.value * 0.5 * math.pi),
-                    child: Icon(_controller.isDismissed ? Icons.more_vert : Icons.close),
+                    transform:
+                        Matrix4.rotationZ(_controller.value * 0.5 * math.pi),
+                    child: Icon(_controller.isDismissed
+                        ? Icons.more_vert
+                        : Icons.close),
                   );
                 },
               ),

@@ -6,7 +6,6 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rxdart/subjects.dart';
-import 'package:mime/mime.dart';
 import 'package:http_parser/http_parser.dart';
 
 import '../models/product.dart';
@@ -61,7 +60,6 @@ class ProductsModel extends ConnectedProductsModel {
 
   Future<Map<String, dynamic>> uploadImage(File image,
       {String imagePath}) async {
-    final mimeTypeData = lookupMimeType(image.path).split('/');
     final imageUploadRequest = http.MultipartRequest(
         'POST',
         Uri.parse(
@@ -69,10 +67,6 @@ class ProductsModel extends ConnectedProductsModel {
     final file = await http.MultipartFile.fromPath(
       'image',
       image.path,
-      contentType: MediaType(
-        mimeTypeData[0],
-        mimeTypeData[1],
-      ),
     );
     imageUploadRequest.files.add(file);
     if (imagePath != null) {
